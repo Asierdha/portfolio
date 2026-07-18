@@ -41,7 +41,7 @@ img {
   display: block;
 }
 
-.container {
+.pf-container {
   width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
 }
