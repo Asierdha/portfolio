@@ -5,11 +5,13 @@ const NAV = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#experiencia", label: "Experiencia" },
-  { href: "#proyectos", label: "Proyectos" },
-  { href: "#habilidades", label: "Habilidades" },
   { href: "#formacion", label: "Formación" },
+  { href: "#habilidades", label: "Habilidades" },
   { href: "#contacto", label: "Contacto" },
 ];
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/asier-del-hoyo-%C3%A1lvarez-5922a0399";
+const CV_URL = `${import.meta.env.BASE_URL}CV_AsierDelHoyo.pdf`;
 
 const EXPERIENCE = [
   {
@@ -47,35 +49,23 @@ const EXPERIENCE = [
   },
 ];
 
-const PROJECTS = [
-  {
-    color: "#FF4D00",
-    title: "Laboratorio SOC con Wazuh + ELK",
-    summary: "Mini-SOC en entorno virtualizado: ingesta de logs de endpoints Linux/Windows, reglas de detección con Wazuh, visualización en Kibana y alertas correlacionadas con MITRE ATT&CK.",
-    tags: ["Wazuh", "ELK Stack", "Suricata", "VMware"],
-  },
-  {
-    color: "#00C2A0",
-    title: "Implantación de SGSI para PYME",
-    summary: "Diseño completo de un Sistema de Gestión de Seguridad de la Información: inventario de activos, análisis de riesgos, SoA y plan de tratamiento, alineado con ISO 27001 y el ENS.",
-    tags: ["ISO 27001", "ENS", "Análisis de riesgos", "SoA"],
-  },
-  {
-    color: "#FFD600",
-    title: "Hardening y Active Directory Lab",
-    summary: "Entorno Windows Server con AD, GPOs restrictivas, auditoría de eventos y bastionado de servidores Linux, documentado como guía reproducible.",
-    tags: ["Windows Server", "Active Directory", "GPOs", "Debian"],
-  },
-];
-
 const SKILLS: { title: string; items: string[] }[] = [
-  { title: "Blue Team / Defensa", items: ["Wazuh (SIEM/XDR)", "ELK Stack", "Suricata (IDS/IPS)", "Volatility", "FTK Imager", "Autopsy", "Hardening", "MISP", "MITRE ATT&CK", "Cyber Kill Chain"] },
-  { title: "Red Team / Ofensiva", items: ["Nmap", "Metasploit", "Burp Suite", "Shodan", "Maltego", "DNSDumpster"] },
-  { title: "GRC y Normativa", items: ["ISO 27001", "ENS", "SGSI/ISMS", "Análisis de riesgos"] },
-  { title: "Sistemas y Virtualización", items: ["Linux (Ubuntu, CentOS, Debian, Fedora)", "Windows Server", "Active Directory", "Docker", "VMware", "VirtualBox"] },
-  { title: "Redes y Protocolos", items: ["LAN/WAN", "Wireshark", "DNS", "DHCP", "FTP", "SSH", "IPv4/IPv6", "NAT", "SMTP"] },
-  { title: "Bases de datos e Idiomas", items: ["MySQL", "MariaDB", "Español (nativo)", "Inglés B1/B2"] },
-  { title: "Soft skills", items: ["Pensamiento analítico bajo presión", "Rigor y orientación al cumplimiento", "Comunicación técnica clara", "Aprendizaje continuo y autonomía"] },
+  {
+    title: "Ciberseguridad y Operaciones SOC (Blue Team)",
+    items: ["Wazuh", "Elastic Stack", "Suricata", "Snort", "Nmap", "Wireshark", "MITRE ATT&CK", "Cyber Kill Chain"],
+  },
+  {
+    title: "Administración de Sistemas y Automatización",
+    items: ["Windows Server / Active Directory", "Linux (Debian, Ubuntu, CentOS)", "PowerShell", "Bash", "Apache", "Docker", "VMware", "VirtualBox"],
+  },
+  {
+    title: "Redes y Seguridad Perimetral",
+    items: ["Firewalls", "TCP/IP", "DNS", "DHCP", "SSH", "VPN", "VLAN", "Subnetting", "SSL/TLS"],
+  },
+  {
+    title: "Gobierno, Riesgo y Cumplimiento (GRC)",
+    items: ["ISO 27001", "ENS", "SGSI (Sistemas de Gestión de Seguridad de la Información)"],
+  },
 ];
 
 const EDUCATION = [
@@ -163,23 +153,22 @@ export function Portfolio() {
       <main>
         <section id="inicio" className="hero">
           <div className="pf-container">
-            <p className="hero-eyebrow">Hola, soy Asier Del Hoyo</p>
-            <h1 className="hero-title">Defiendo sistemas. Reduzco riesgos. Aseguro tu negocio.</h1>
-            <p className="hero-role">Analista de Ciberseguridad · Blue Team &amp; GRC · SOC · ISO 27001 · ENS</p>
-            <p className="hero-desc">
-              Experiencia en diseño de SOC, implantación de SGSI y consultoría de madurez de seguridad, con una base sólida como técnico de sistemas Linux y Windows Server.
+            <p className="hero-eyebrow">HOLA, SOY ASIER DEL HOYO</p>
+            <h1 className="hero-title">Preparado para monitorizar, defender y reforzar tu infraestructura.</h1>
+            <p className="hero-role">
+              Técnico en Ciberseguridad y Administrador de Sistemas. Especializado en operaciones de Blue Team, bastionado de redes y gestión de cumplimiento (ISO 27001 / ENS).
             </p>
             <div className="hero-actions">
-              <a href="#experiencia" className="btn btn-primary">Ver mi experiencia</a>
-              <a href="#contacto" className="btn btn-secondary">Hablemos de tu seguridad</a>
+              <a href="#experiencia" className="btn btn-primary">Ver mi trayectoria</a>
+              <a href={CV_URL} className="btn btn-secondary" download>Descargar CV</a>
             </div>
           </div>
           <div className="hero-marquee" aria-hidden="true">
             <span>BLUE TEAM</span>
-            <span>GRC</span>
+            <span>SOC</span>
             <span>ISO 27001</span>
             <span>ENS</span>
-            <span>SOC</span>
+            <span>HARDENING</span>
           </div>
         </section>
 
@@ -191,13 +180,13 @@ export function Portfolio() {
             </div>
             <div className="about-content">
               <p>
-                Soy Asier Del Hoyo, analista de ciberseguridad enfocado en <strong>Blue Team y GRC</strong>. Mi trabajo consiste en detectar antes, responder mejor y dejar a las organizaciones más preparadas de lo que estaban ayer, combinando visión técnica con cumplimiento normativo.
+                Soy Asier Del Hoyo, técnico especializado en administración de sistemas y ciberseguridad, enfocado en el área de <strong>Blue Team y GRC</strong>. Acabo de finalizar mi formación de especialización en ciberseguridad y busco mi primera oportunidad profesional en entornos SOC o soporte de sistemas.
               </p>
               <p>
-                He participado en el diseño de un SOC desde cero, en procesos de certificación <strong>ISO 27001</strong> e implantación del <strong>ENS</strong>, y en consultoría de madurez de seguridad para empresas externas. Vengo de una base sólida como técnico de sistemas (Linux, Windows Server, virtualización y redes), lo que me permite entender la seguridad desde la infraestructura, no solo desde el papel.
+                Durante mi trayectoria académica y periodos de prácticas, he tenido la oportunidad de colaborar en la arquitectura de un SOC, apoyar la documentación para certificaciones <strong>ISO 27001</strong> e implantación del <strong>ENS</strong>, y gestionar servidores Linux y Windows. Mi fuerte es combinar el conocimiento de la infraestructura técnica con los procesos normativos.
               </p>
               <p>
-                Me mueve la curiosidad, el rigor y la idea de que la seguridad se construye con procesos claros y personas que entienden por qué importan. Siempre estoy aprendiendo: ahora mismo, certificado en <strong>Cisco CyberOps Associate</strong>.
+                Me mueve la curiosidad técnica, el rigor y el aprendizaje continuo. Dedico gran parte de mi tiempo libre a montar laboratorios propios y resolver retos para mantener mis habilidades al día. Actualmente cuento con la certificación <strong>Cisco CyberOps Associate</strong>.
               </p>
             </div>
           </div>
@@ -230,48 +219,6 @@ export function Portfolio() {
           </div>
         </section>
 
-        <section id="proyectos" className="section">
-          <div className="pf-container">
-            <div className="section-header">
-              <p className="section-eyebrow">Trabajo técnico</p>
-              <h2 className="section-title">Proyectos</h2>
-            </div>
-            <div className="projects-grid">
-              {PROJECTS.map((p) => (
-                <article key={p.title} className="project-card">
-                  <div className="project-thumb" style={{ ["--thumb-color" as string]: p.color }}></div>
-                  <div className="project-body">
-                    <h3 className="project-title">{p.title}</h3>
-                    <p className="project-summary">{p.summary}</p>
-                    <ul className="project-tags">
-                      {p.tags.map((t) => <li key={t}>{t}</li>)}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="habilidades" className="section section-alt">
-          <div className="pf-container">
-            <div className="section-header">
-              <p className="section-eyebrow">Stack técnico</p>
-              <h2 className="section-title">Habilidades</h2>
-            </div>
-            <div className="skills-grid">
-              {SKILLS.map((g) => (
-                <div key={g.title} className="skill-group">
-                  <h3 className="skill-title">{g.title}</h3>
-                  <ul className="skill-list">
-                    {g.items.map((s) => <li key={s}>{s}</li>)}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="formacion" className="section">
           <div className="pf-container">
             <div className="section-header">
@@ -291,54 +238,47 @@ export function Portfolio() {
           </div>
         </section>
 
+        <section id="habilidades" className="section section-alt">
+          <div className="pf-container">
+            <div className="section-header">
+              <p className="section-eyebrow">Core competencies</p>
+              <h2 className="section-title">Habilidades</h2>
+            </div>
+            <div className="skills-grid">
+              {SKILLS.map((g) => (
+                <div key={g.title} className="skill-group">
+                  <h3 className="skill-title">{g.title}</h3>
+                  <ul className="skill-list">
+                    {g.items.map((s) => <li key={s}>{s}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="contacto" className="section section-contact">
           <div className="pf-container">
-            <div className="contact-layout">
-              <div className="contact-intro">
-                <p className="section-eyebrow">Hablemos</p>
-                <h2 className="section-title">Contacto</h2>
-                <p className="contact-desc">
-                  ¿Tienes un proyecto de ciberseguridad, una oportunidad profesional o quieres reforzar tu postura de seguridad? Escríbeme y te respondo pronto.
-                </p>
-                <div className="contact-links">
-                  <a href="mailto:asierdelhoyoalvarez@gmail.com" className="contact-link">
-                    asierdelhoyoalvarez@gmail.com
-                  </a>
-                  <a href="tel:+34616861701" className="contact-link">+34 616 861 701</a>
-                  <a href="#" className="contact-link">LinkedIn</a>
-                </div>
+            <div className="contact-simple">
+              <p className="section-eyebrow">Hablemos</p>
+              <h2 className="section-title">Conectemos</h2>
+              <p className="contact-desc">
+                Estoy abierto a mi primera oportunidad profesional en entornos SOC, Blue Team o administración de sistemas. Si mi perfil encaja con lo que buscas, contáctame directamente por LinkedIn o revisa mi CV completo.
+              </p>
+              <div className="contact-actions">
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Conectar en LinkedIn
+                </a>
+                <a href={CV_URL} className="btn btn-secondary" download>
+                  Descargar Currículum
+                </a>
               </div>
-              <form
-                className="contact-form"
-                action="https://formspree.io/f/tu-formulario"
-                method="POST"
-                noValidate
-              >
-                <div className="form-group">
-                  <label htmlFor="name">Nombre</label>
-                  <input type="text" id="name" name="name" required placeholder="Tu nombre" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" name="email" required placeholder="tu@email.com" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    placeholder="Cuéntame en qué puedo ayudarte..."
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary btn-full">
-                  Enviar mensaje
-                </button>
-                <p className="form-note">
-                  Reemplaza la URL de Formspree con la tuya para activar el formulario.
-                </p>
-              </form>
+              <div className="contact-direct">
+                <a href="mailto:asierdelhoyoalvarez@gmail.com" className="contact-link">
+                  asierdelhoyoalvarez@gmail.com
+                </a>
+                <a href="tel:+34616861701" className="contact-link">+34 616 861 701</a>
+              </div>
             </div>
           </div>
         </section>

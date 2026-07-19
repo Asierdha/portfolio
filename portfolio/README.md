@@ -1,48 +1,42 @@
-# Plantilla de Portafolio
+# Portafolio — Asier Del Hoyo Álvarez
 
-Una plantilla de portafolio estática, responsive y lista para subir a GitHub Pages. Incluye secciones de inicio, proyectos, experiencia, formación y contacto.
+Portafolio estático (HTML + CSS + JS) listo para desplegar en GitHub Pages desde el repositorio [`Asierdha/portfolio`](https://github.com/Asierdha/portfolio).
 
 ## Estructura
 
 ```
 portfolio/
-├── index.html      # Página principal
-├── styles.css      # Estilos
-├── script.js       # Interactividad (menú móvil, scroll, formulario)
-└── README.md       # Este archivo
+├── index.html            # Página principal
+├── styles.css            # Estilos
+├── script.js             # Interactividad (menú móvil, scroll suave, año)
+├── CV_AsierDelHoyo.pdf   # CV descargable desde el sitio
+└── README.md             # Este archivo
 ```
 
-## Cómo usar
+Todas las rutas internas (`styles.css`, `script.js`, `CV_AsierDelHoyo.pdf`) son **relativas**, así que el sitio funciona tanto en la raíz del dominio como bajo un subpath (`/portfolio/`) sin cambios.
 
-1. Copia esta carpeta `portfolio` a tu repositorio de GitHub.
-2. Edita `index.html` con tu información personal:
-   - Reemplaza **Tu Nombre** por tu nombre real.
-   - Actualiza el título, descripción y enlaces de redes sociales.
-   - Modifica los proyectos, experiencia y formación con tus datos.
-3. Opcional: cambia los colores en `styles.css` editando las variables CSS en `:root`.
-4. Para el formulario de contacto, crea una cuenta en [Formspree](https://formspree.io) y reemplaza `https://formspree.io/f/tu-formulario` por tu URL real.
+## Despliegue en GitHub Pages (repositorio `Asierdha/portfolio`)
 
-## Subir a GitHub Pages
+Recomendado: publicar el contenido de esta carpeta como sitio del repositorio, quedando accesible en:
 
-1. Ve a la configuración de tu repositorio en GitHub: **Settings > Pages**.
-2. En **Source**, selecciona **Deploy from a branch**.
-3. Selecciona la rama que contiene la carpeta `portfolio` (normalmente `main`).
-4. En **Folder**, elige `/portfolio` (si usas GitHub Pages desde una carpeta) o copia el contenido de esta carpeta a la raíz del repositorio y elige `/(root)`.
-5. Guarda y espera unos minutos. Tu portafolio estará disponible en `https://tusuario.github.io/portafolio/`.
+**https://asierdha.github.io/portfolio/**
 
-> Si usas una carpeta `/portfolio`, asegúrate de que la URL base en `index.html` (`og:url`) coincida con la ruta real.
+### Opción A — Servir directamente desde la carpeta `/portfolio` (más simple)
 
-## Personalización rápida
+1. Sube todo el proyecto a la rama `main` del repo `Asierdha/portfolio` (incluida esta carpeta).
+2. Entra en **Settings → Pages**.
+3. En **Source** elige **Deploy from a branch**.
+4. Selecciona rama `main` y carpeta `/portfolio`.
+5. Guarda. En 1–2 minutos el sitio estará en `https://asierdha.github.io/portfolio/`.
 
-| Elemento | Dónde cambiar |
-|----------|---------------|
-| Nombre y título | `index.html`, sección `#inicio` |
-| Proyectos | `index.html`, sección `#proyectos` |
-| Experiencia | `index.html`, sección `#experiencia` |
-| Formación | `index.html`, sección `#formacion` |
-| Colores | `styles.css`, variables `:root` |
-| Tipografía | `index.html`, enlaces de Google Fonts |
+### Opción B — Mover el contenido a la raíz del repo
 
-## Licencia
+1. Copia el contenido de `portfolio/` a la raíz del repositorio `Asierdha/portfolio`.
+2. En **Settings → Pages**, selecciona rama `main` y carpeta `/(root)`.
+3. El sitio quedará igualmente en `https://asierdha.github.io/portfolio/`.
 
-Libre para uso personal y comercial. Atribución opcional.
+## Personalizar
+
+- Textos: edita `index.html`.
+- Colores y tipografía: variables CSS al inicio de `styles.css` (`:root`).
+- CV: sustituye `CV_AsierDelHoyo.pdf` por una versión actualizada manteniendo el mismo nombre.

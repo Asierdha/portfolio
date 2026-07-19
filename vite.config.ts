@@ -6,10 +6,18 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// GitHub Pages project site is served under /portfolio/.
+// Use that base only for production builds targeting GitHub Pages
+// (set GITHUB_PAGES=1 when building) so the local dev preview keeps serving from /.
+const isGithubPages = process.env.GITHUB_PAGES === "1";
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+  },
+  vite: {
+    base: isGithubPages ? "/portfolio/" : "/",
   },
 });
